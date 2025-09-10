@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sri Event Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        .top-banner {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        .left-logo {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .left-logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 8px;
+        }
+        .right-buttons {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+        }
+        .right-buttons button {
+            margin-left: 8px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: #0066cc;
+            color: white;
+            cursor: pointer;
+        }
+        .right-buttons button:hover {
+            background-color: #004080;
+        }
+        .navigation {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+        }
+        .navigation ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+        .navigation ul li {
+            cursor: pointer;
+            position: relative;
+        }
+        .submenu {
+            list-style: none;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            background-color: white;
+            color: black;
+            border-radius: 4px;
+            display: none;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .submenu li {
+            margin-bottom: 5px;
+        }
+        .main-content {
+            padding: 20px;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .event-section {
+            display: flex;
+            gap: 20px;
+        }
+        .event-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .event-item img {
+            width: 100%;
+            border-radius: 4px;
+        }
+        .event-item button {
+            margin-top: 10px;
+            padding: 8px;
+            border: none;
+            background-color: #004080;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .event-item button:hover {
+            background-color: #00264d;
+        }
+        .cart-section {
+            max-width: 400px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .cart-section h3 {
+            margin-top: 0;
+        }
+        .cart-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-section ul li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .cart-section button {
+            background-color: #cc0000;
+            border: none;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .reference-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .reference-images img {
+            width: 80px;
+            border-radius: 4px;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .partners {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .partners div {
+            text-align: center;
+        }
+        .partners img {
+            width: 60px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <h2>Welcome to Sri Event - Your Event, Our Passion</h2>
+    </div>
+
+    <!-- Left Bottom Logo -->
+    <div class="left-logo">
+        <img src="logo.png" alt="Sri Event Logo" />
+        <span>Sri Event</span>
+    </div>
+
+    <!-- Right Top Buttons -->
+    <div class="right-buttons">
+        <button onclick="alert('Login clicked')">Login</button>
+        <button onclick="alert('Logout clicked')">Logout</button>
+        <button onclick="alert('Sign In clicked')">Sign In</button>
+        <button onclick="alert('Sign Out clicked')">Sign Out</button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="navigation">
+        <ul>
+            <li onclick="toggleSubmenu('home')">Home</li>
+            <li onclick="toggleSubmenu('design')">Design</li>
+            <li onclick="toggleSubmenu('catering')">Catering</li>
+            <li onclick="toggleSubmenu('booking')">Booking Day</li>
+            <li onclick="toggleSubmenu('account')">Account ▼
+                <ul id="account-submenu" class="submenu">
+                    <li>Your Name: John Doe</li>
+                    <li>Email: johndoe@example.com</li>
+                    <li>Phone: 9876543210</li>
+                    <li>Booking Selection</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <div class="event-section">
+            <div class="event-item">
+                <h3>Event Design</h3>
+                <img src="design1.jpg" alt="Design"/>
+                <p>Cost: ₹50,000</p>
+                <button onclick="addToCart('Event Design', '₹50,000')">Add to Cart</button>
+            </div>
+            <div class="event-item">
+                <h3>Catering</h3>
+                <img src="catering1.jpg" alt="Catering"/>
+                <p>Cost: ₹25,000</p>
+                <button onclick="addToCart('Catering', '₹25,000')">Add to Cart</button>
+            </div>
+            <div class="event-item">
+                <h3>Decoration</h3>
+                <img src="decoration1.jpg" alt="Decoration"/>
+                <p>Cost: ₹10,000</p>
+                <button onclick="addToCart('Decoration', '₹10,000')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="cart-section">
+            <h3>Shopping Cart</h3>
+            <ul id="cart-list"></ul>
+
+            <h3>Reference Images</h3>
+            <div class="reference-images">
+                <img src="ref1.jpg" alt="Reference 1"/>
+                <img src="ref2.jpg" alt="Reference 2"/>
+                <img src="ref3.jpg" alt="Reference 3"/>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h4>Our Business Partners</h4>
+        <div class="partners">
+            <div><img src="partner1.png" alt="Partner 1"/><p>Partner 1</p></div>
+            <div><img src="partner2.png" alt="Partner 2"/><p>Partner 2</p></div>
+            <div><img src="partner3.png" alt="Partner 3"/><p>Partner 3</p></div>
+            <div><img src="partner4.png" alt="Partner 4"/><p>Partner 4</p></div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSubmenu(menu) {
+            if (menu === 'account') {
+                const submenu = document.getElementById('account-submenu');
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        function addToCart(itemName, price) {
+            const cartList = document.getElementById('cart-list');
+            const li = document.createElement('li');
+            li.textContent = `${itemName} - ${price} `;
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.onclick = () => cartList.removeChild(li);
+            li.appendChild(removeBtn);
+            cartList.appendChild(li);
+        }
+    </script>
+
+</body>
+</html>
