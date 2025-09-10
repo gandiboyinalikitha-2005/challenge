@@ -1,35 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Sri Event Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
-            background-color: #f5f5f5;
         }
         header {
-            background-color: #004080;
+            background-color: #003366;
             color: white;
-            text-align: center;
             padding: 15px;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #0066cc;
-            padding: 10px 0;
-            gap: 20px;
-        }
-        nav div {
-            color: white;
-            cursor: pointer;
+            text-align: center;
             position: relative;
         }
-        nav div:hover {
-            text-decoration: underline;
+        header img {
+            width: 50px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        nav {
+            background-color: #0055aa;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+        }
+        nav div {
+            position: relative;
+            cursor: pointer;
+        }
+        .submenu {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .submenu li {
+            list-style: none;
+            padding: 5px 0;
+        }
+        .login-bar {
+            text-align: right;
+            background-color: #ddd;
+            padding: 10px 20px;
+        }
+        .login-bar button {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: #003366;
+            color: white;
+            cursor: pointer;
+        }
+        .banner {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .banner img {
+            max-width: 80%;
+            border-radius: 8px;
         }
         .content {
             display: flex;
@@ -40,60 +79,213 @@
         }
         .card {
             background-color: white;
-            width: 250px;
+            width: 280px;
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             text-align: center;
-            padding: 15px;
         }
         .card img {
             width: 100%;
-            border-radius: 6px;
+            border-radius: 4px;
         }
-        .card p {
-            margin: 10px 0 0;
-            font-weight: bold;
+        .reference-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
         }
-        .banner {
+        .reference-images img {
+            width: 50px;
+            border-radius: 4px;
+        }
+        .book-event {
             text-align: center;
-            margin: 30px 0;
-        }
-        .banner img {
-            max-width: 80%;
-            border-radius: 8px;
-        }
-        .bottom-box {
-            background-color: #004080;
+            background-color: #003366;
             color: white;
-            padding: 15px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .book-event button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #ffaa00;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
             text-align: center;
             position: relative;
         }
-        .bottom-box span {
-            font-size: 24px;
-            font-weight: bold;
+        .partners {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
         }
-        .booking-day {
+        .partners div {
             text-align: center;
-            margin: 20px 0;
         }
-        .booking-day button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #ff6600;
-            border: none;
-            border-radius: 6px;
-            color: white;
-            cursor: pointer;
+        .partners img {
+            width: 60px;
+            border-radius: 4px;
+        }
+        .bottom-logo {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .bottom-logo img {
+            width: 40px;
+            margin-right: 8px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Sri Event Dashboard</h1>
+        <img src="logo.png" alt="Sri Event Logo"/>
+        <span style="font-size: 24px;">Sri Event Dashboard</span>
     </header>
 
     <nav>
-        <div>Home</div>
-        <div>Design</div>
+        <div onmouseover="showMenu('home-menu')" onmouseout="hideMenu('home-menu')">
+            Home
+            <ul id="home-menu" class="submenu">
+                <li>Overview</li>
+                <li>News</li>
+            </ul>
+        </div>
+        <div onmouseover="showMenu('setting-menu')" onmouseout="hideMenu('setting-menu')">
+            Setting
+            <ul id="setting-menu" class="submenu">
+                <li>Profile</li>
+                <li>Preferences</li>
+            </ul>
+        </div>
+        <div onmouseover="showMenu('design-menu')" onmouseout="hideMenu('design-menu')">
+            Design
+            <ul id="design-menu" class="submenu">
+                <li>Modern</li>
+                <li>Classic</li>
+            </ul>
+        </div>
+        <div onmouseover="showMenu('catering-menu')" onmouseout="hideMenu('catering-menu')">
+            Catering
+            <ul id="catering-menu" class="submenu">
+                <li>Vegetarian</li>
+                <li>Non-Vegetarian</li>
+            </ul>
+        </div>
+        <div onmouseover="showMenu('decoration-menu')" onmouseout="hideMenu('decoration-menu')">
+            Decoration
+            <ul id="decoration-menu" class="submenu">
+                <li>Flower Decoration</li>
+                <li>Lighting Setup</li>
+            </ul>
+        </div>
+        <div onmouseover="showMenu('days-menu')" onmouseout="hideMenu('days-menu')">
+            Days
+            <ul id="days-menu" class="submenu">
+                <li>Single Day</li>
+                <li>Multi Day</li>
+            </ul>
+        </div>
+        <div onmouseover="showMenu('booking-menu')" onmouseout="hideMenu('booking-menu')">
+            Booking
+            <ul id="booking-menu" class="submenu">
+                <li>Check Availability</li>
+                <li>Manage Bookings</li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="login-bar">
+        <button onclick="alert('Sign In Clicked')">Sign In</button>
+        <button onclick="alert('Sign Out Clicked')">Sign Out</button>
+    </div>
+
+    <div class="banner">
+        <img src="event-banner.jpg" alt="Event Banner"/>
+    </div>
+
+    <div class="content">
+
+        <div class="card">
+            <h3>Booking a Day</h3>
+            <p>Choose the best day for your event!</p>
+        </div>
+
+        <div class="card">
+            <h3>Designs</h3>
+            <img src="design1.jpg" alt="Design"/>
+            <p>Cost: ₹50,000</p>
+            <div class="reference-images">
+                <img src="ref1.jpg" alt="Reference 1"/>
+                <img src="ref2.jpg" alt="Reference 2"/>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Catering</h3>
+            <img src="catering1.jpg" alt="Catering"/>
+            <p>Cost: ₹25,000</p>
+        </div>
+
+        <div class="card">
+            <h3>Decoration Items</h3>
+            <img src="decoration1.jpg" alt="Decoration"/>
+            <p>Cost: ₹10,000</p>
+        </div>
+
+        <div class="card">
+            <h3>Lighting Setup</h3>
+            <img src="lighting1.jpg" alt="Lighting"/>
+            <p>Cost: ₹8,000</p>
+        </div>
+
+        <div class="card">
+            <h3>Flower Decoration</h3>
+            <img src="flower1.jpg" alt="Flowers"/>
+            <p>Cost: ₹12,000</p>
+        </div>
+
+    </div>
+
+    <div class="book-event">
+        <h2>Book Your Event Now!</h2>
+        <button onclick="alert('Booking form coming soon!')">Book Now</button>
+    </div>
+
+    <footer>
+        <div class="partners">
+            <div><img src="partner1.png" alt="Partner 1"/><p>Partner 1</p></div>
+            <div><img src="partner2.png" alt="Partner 2"/><p>Partner 2</p></div>
+            <div><img src="partner3.png" alt="Partner 3"/><p>Partner 3</p></div>
+            <div><img src="partner4.png" alt="Partner 4"/><p>Partner 4</p></div>
+        </div>
+        <div class="bottom-logo">
+            <img src="logo.png" alt="Sri Event Logo"/>
+            <span>Sri Event</span>
+        </div>
+    </footer>
+
+    <script>
+        function showMenu(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+        function hideMenu(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
