@@ -111,5 +111,96 @@
         }
         .partners {
             display: flex;
-            justify-content: c
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .partners div {
+            text-align: center;
+        }
+        .partners img {
+            width: 60px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
 
+    <header>
+        <h1>Sri Event</h1>
+    </header>
+
+    <nav>
+        <div onclick="toggleSubmenu('home')">Home</div>
+        <div onclick="toggleSubmenu('setting')">Setting</div>
+        <div onclick="toggleSubmenu('design')">Design</div>
+        <div onclick="toggleSubmenu('catering')">Catering</div>
+        <div onclick="toggleSubmenu('decoration')">Decoration</div>
+        <div onclick="toggleSubmenu('days')">Days</div>
+        <div onclick="toggleSubmenu('booking')">Booking</div>
+    </nav>
+
+    <div class="login-section">
+        <button onclick="alert('Sign In clicked')">Sign In</button>
+        <button onclick="alert('Sign Out clicked')">Sign Out</button>
+        <button onclick="alert('Log In clicked')">Log In</button>
+        <button onclick="alert('Log Out clicked')">Log Out</button>
+    </div>
+
+    <div class="banner">
+        <img src="event-banner.jpg" alt="Event Banner"/>
+    </div>
+
+    <div class="content">
+
+        <div class="section">
+            <h3>Booking a Day</h3>
+            <p>Choose your event day easily!</p>
+        </div>
+
+        <div class="section">
+            <h3>Designs</h3>
+            <img src="design1.jpg" alt="Design"/>
+            <p>Cost: ₹50,000</p>
+            <div class="reference-images">
+                <img src="ref1.jpg" alt="Ref1"/>
+                <img src="ref2.jpg" alt="Ref2"/>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Catering</h3>
+            <img src="catering1.jpg" alt="Catering"/>
+            <p>Cost: ₹25,000</p>
+        </div>
+
+        <div class="section">
+            <h3>Decoration</h3>
+            <img src="decoration1.jpg" alt="Decoration"/>
+            <p>Cost: ₹10,000</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="partners">
+            <div><img src="partner1.png" alt="Partner1"/><p>Partner 1</p></div>
+            <div><img src="partner2.png" alt="Partner2"/><p>Partner 2</p></div>
+            <div><img src="partner3.png" alt="Partner3"/><p>Partner 3</p></div>
+            <div><img src="partner4.png" alt="Partner4"/><p>Partner 4</p></div>
+        </div>
+        <div class="bottom-logo">
+            <img src="logo.png" alt="Sri Event Logo"/>
+            <span>Sri Event</span>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSubmenu(menu) {
+            alert('Menu clicked: ' + menu);
+        }
+    </script>
+
+</body>
+</html>
