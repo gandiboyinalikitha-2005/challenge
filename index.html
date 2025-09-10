@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f8f9fa;
+            background-color: #f7f7f7;
         }
         header {
             background-color: #004080;
@@ -17,16 +17,10 @@
             padding: 15px;
             position: relative;
         }
-        .top-logo {
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-        }
-        .top-logo img {
-            width: 40px;
-            margin-right: 8px;
+        header img {
+            width: 50px;
+            vertical-align: middle;
+            margin-right: 10px;
         }
         nav {
             background-color: #0066cc;
@@ -86,7 +80,7 @@
         }
         .card {
             background-color: white;
-            width: 300px;
+            width: 280px;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -103,7 +97,7 @@
             margin-top: 10px;
         }
         .reference-images img {
-            width: 60px;
+            width: 50px;
             border-radius: 4px;
         }
         .book-event {
@@ -129,6 +123,20 @@
             position: relative;
             text-align: center;
         }
+        .partners {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .partners div {
+            text-align: center;
+        }
+        .partners img {
+            width: 60px;
+            border-radius: 4px;
+        }
         .bottom-logo {
             position: absolute;
             bottom: 10px;
@@ -140,30 +148,13 @@
             width: 40px;
             margin-right: 8px;
         }
-        .partners {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-        .partners div {
-            text-align: center;
-        }
-        .partners img {
-            width: 60px;
-            border-radius: 4px;
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="top-logo">
-            <img src="logo.png" alt="Sri Event Logo"/>
-            <span>Sri Event</span>
-        </div>
-        <h1>Sri Event Dashboard</h1>
+        <img src="logo.png" alt="Sri Event Logo"/>
+        <span style="font-size: 24px;">Sri Event Dashboard</span>
     </header>
 
     <nav>
@@ -198,8 +189,8 @@
         <div onmouseover="showMenu('decoration-menu')" onmouseout="hideMenu('decoration-menu')">
             Decoration
             <ul id="decoration-menu" class="submenu">
-                <li>Floral</li>
-                <li>Lighting</li>
+                <li>Flower Decoration</li>
+                <li>Lighting Setup</li>
             </ul>
         </div>
         <div onmouseover="showMenu('days-menu')" onmouseout="hideMenu('days-menu')">
@@ -231,7 +222,7 @@
 
         <div class="card">
             <h3>Booking a Day</h3>
-            <p>Choose the perfect day for your event!</p>
+            <p>Choose the best day for your event!</p>
         </div>
 
         <div class="card">
@@ -251,39 +242,4 @@
         </div>
 
         <div class="card">
-            <h3>Decoration</h3>
-            <img src="decoration1.jpg" alt="Decoration"/>
-            <p>Cost: ₹10,000</p>
-        </div>
-
-    </div>
-
-    <div class="book-event">
-        <h2>Book Your Event Now!</h2>
-        <button onclick="alert('Booking form coming soon!')">Book Now</button>
-    </div>
-
-    <footer>
-        <div class="partners">
-            <div><img src="partner1.png" alt="Partner1"/><p>Partner 1</p></div>
-            <div><img src="partner2.png" alt="Partner2"/><p>Partner 2</p></div>
-            <div><img src="partner3.png" alt="Partner3"/><p>Partner 3</p></div>
-            <div><img src="partner4.png" alt="Partner4"/><p>Partner 4</p></div>
-        </div>
-        <div class="bottom-logo">
-            <img src="logo.png" alt="Sri Event Logo"/>
-            <span>Sri Event</span>
-        </div>
-    </footer>
-
-    <script>
-        function showMenu(id) {
-            document.getElementById(id).style.display = 'block';
-        }
-        function hideMenu(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-    </script>
-
-</body>
-</html>
+            <
