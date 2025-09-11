@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Forniter Capital Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shri Event Dashboard</title>
   <style>
-    /* --- Basic reset and base styles --- */
+    /* Reset and base styles */
     * {
       margin: 0;
       padding: 0;
@@ -22,13 +22,13 @@
       color: inherit;
     }
 
-    /* --- Header --- */
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 30px;
-      background: linear-gradient(90deg, #FF8A65, #FFD180); /* bright orange-peach gradient */
+      background: linear-gradient(90deg, #FF8A65, #FFD180);
       color: white;
     }
     .logo {
@@ -64,11 +64,11 @@
       border-radius: 5px;
     }
 
-    /* --- Hero / Intro Section --- */
+    /* Hero Section */
     .hero {
       text-align: center;
       padding: 80px 20px;
-      background: url('https://via.placeholder.com/1200x500?text=Furniture+Backdrop') center/cover no-repeat;
+      background: url('https://via.placeholder.com/1200x500?text=Event+Backdrop') center/cover no-repeat;
       position: relative;
       color: white;
     }
@@ -107,25 +107,25 @@
       color: white;
     }
 
-    /* --- Product / Showcase Section --- */
-    .products {
+    /* Services Section */
+    .services {
       padding: 60px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
-    .products h2 {
+    .services h2 {
       text-align: center;
       font-size: 2.2rem;
       margin-bottom: 40px;
       color: #FF8A65;
     }
-    .product-grid {
+    .service-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
       justify-content: center;
     }
-    .product-card {
+    .service-card {
       background-color: #FFF3E0;
       border-radius: 10px;
       overflow: hidden;
@@ -135,33 +135,33 @@
       display: flex;
       flex-direction: column;
     }
-    .product-card:hover {
+    .service-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
-    .product-card img {
+    .service-card img {
       width: 100%;
       height: auto;
       display: block;
     }
-    .product-info {
+    .service-info {
       padding: 20px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .product-info .title {
+    .service-info .title {
       font-size: 1.3rem;
       margin-bottom: 10px;
       color: #333;
     }
-    .product-info .price {
+    .service-info .price {
       font-size: 1.1rem;
       margin-bottom: 20px;
       color: #777;
     }
-    .product-info .shop-btn {
+    .service-info .shop-btn {
       align-self: flex-start;
       background-color: #FF8A65;
       color: white;
@@ -171,12 +171,12 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    .product-info .shop-btn:hover {
+    .service-info .shop-btn:hover {
       background-color: #FFD180;
       color: #333;
     }
 
-    /* --- Footer --- */
+    /* Footer */
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -185,10 +185,10 @@
       margin-top: 60px;
     }
 
-    /* --- Responsive --- */
+    /* Responsive */
     @media (max-width: 768px) {
       nav ul {
-        display: none; /* could be toggled by a menu button in real use */
+        display: none;
       }
       header {
         flex-wrap: wrap;
@@ -199,23 +199,22 @@
       .hero p {
         font-size: 1rem;
       }
-      .product-card {
+      .service-card {
         width: 90%;
       }
     }
-
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">Forniter Capital</div>
+    <div class="logo">Shri Event</div>
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Sofas</a></li>
-        <li><a href="#">Beds</a></li>
-        <li><a href="#">Wood Items</a></li>
+        <li><a href="#">Catering</a></li>
+        <li><a href="#">Decoration</a></li>
+        <li><a href="#">Flowers</a></li>
         <li><a href="#">Shop</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
@@ -227,60 +226,56 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Welcome to Forniter Capital</h1>
-      <p>High quality furniture – sofas, beds, and woodworks just for you</p>
-      <button class="cta-button">Shop Collection</button>
+      <h1>Welcome to Shri Event</h1>
+      <p>Your one-stop solution for catering, decoration, and floral arrangements</p>
+      <button class="cta-button">Explore Our Services</button>
     </div>
   </section>
 
-  <section class="products">
-    <h2>Featured Products</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Luxury+Sofa" alt="Luxury Sofa">
-        <div class="product-info">
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <img src="https://via.placeholder.com/300x200?text=Catering+Service" alt="Catering Service">
+        <div class="service-info">
           <div>
-            <div class="title">Luxury Sofa</div>
-            <div class="price">₹80,000</div>
+            <div class="title">Gourmet Catering</div>
+            <div class="price">₹50,000</div>
           </div>
-          <button class="shop-btn" onclick="shopItem('Luxury Sofa', 80000)">Shop Now</button>
+          <button class="shop-btn" onclick="shopService('Gourmet Catering', 50000)">Book Now</button>
         </div>
       </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=King+Size+Bed" alt="King Size Bed">
-        <div class="product-info">
+      <div class="service-card">
+        <img src="https://via.placeholder.com/300x200?text=Event+Decoration" alt="Event Decoration">
+        <div class="service-info">
           <div>
-            <div class="title">King Size Bed</div>
-            <div class="price">₹120,000</div>
+            <div class="title">Elegant Decoration</div>
+            <div class="price">₹30,000</div>
           </div>
-          <button class="shop-btn" onclick="shopItem('King Size Bed', 120000)">Shop Now</button>
+          <button class="shop-btn" onclick="shopService('Elegant Decoration', 30000)">Book Now</button>
         </div>
       </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Wooden+Dining+Table" alt="Wooden Dining Table">
-        <div class="product-info">
+      <div class="service-card">
+        <img src="https://via.placeholder.com/300x200?text=Floral+Design" alt="Floral Design">
+        <div class="service-info">
           <div>
-            <div class="title">Wooden Dining Table</div>
-            <div class="price">₹45,000</div>
+            <div class="title">Floral Arrangements</div>
+            <div class="price">₹20,000</div>
           </div>
-          <button class="shop-btn" onclick="shopItem('Wooden Dining Table', 45000)">Shop Now</button>
+          <button class="shop-btn" onclick="shopService('Floral Arrangements', 20000)">Book Now</button>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Forniter Capital. All Rights Reserved.
+    &copy; 2025 Shri Event. All Rights Reserved.
   </footer>
 
   <script>
-    // --- JS for interactivity ---
-    function shopItem(itemName, price) {
-      alert('You clicked Shop for: ' + itemName + ' — Price: ₹' + price);
-      // In real use: redirect to product detail page or add to cart
+    function shopService(serviceName, price) {
+      alert('You selected: ' + serviceName + ' — Price: ₹' + price);
     }
-
-    console.log('Forniter Capital Dashboard loaded.');
   </script>
 
 </body>
