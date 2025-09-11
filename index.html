@@ -1,181 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shri Events Dashboard</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forniter Capital Dashboard</title>
+  <style>
+    /* --- Basic reset and base styles --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        background: linear-gradient(120deg, #FFDEE9, #B5FFFC);
+      font-family: 'Arial', sans-serif;
+      background-color: #FFF9F4;
+      color: #333;
+      line-height: 1.4;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    /* Header */
+    /* --- Header --- */
     header {
-        background-color: #ff9900;
-        color: white;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+      background: linear-gradient(90deg, #FF8A65, #FFD180); /* bright orange-peach gradient */
+      color: white;
     }
-
-    header .logo {
-        font-size: 28px;
-        font-weight: bold;
-        text-shadow: 1px 1px 3px #000;
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
     }
-
-    header .account {
-        cursor: pointer;
-        position: relative;
-    }
-
-    .account-dropdown {
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 40px;
-        background-color: #fff;
-        color: #333;
-        padding: 10px;
-        border-radius: 6px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-        z-index: 100;
-        width: 200px;
-    }
-
-    .account-dropdown p {
-        margin: 8px 0;
-    }
-
-    /* Navigation */
-    nav {
-        background-color: #ffcc00;
-    }
-
     nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 10px 0;
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: white;
+      font-size: 1rem;
+      padding: 5px 10px;
+      transition: background-color 0.3s, border-radius 0.3s;
+    }
+    nav ul li a:hover {
+      background-color: rgba(255,255,255,0.3);
+      border-radius: 5px;
+    }
+    .account-links {
+      font-size: 0.9rem;
+    }
+    .account-links a {
+      color: white;
+      margin-left: 15px;
+      padding: 5px 10px;
+      transition: background-color 0.3s, border-radius 0.3s;
+    }
+    .account-links a:hover {
+      background-color: rgba(255,255,255,0.3);
+      border-radius: 5px;
+    }
+
+    /* --- Hero / Intro Section --- */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: url('https://via.placeholder.com/1200x500?text=Furniture+Backdrop') center/cover no-repeat;
+      position: relative;
+      color: white;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+    .hero .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .hero .cta-button {
+      background-color: #FFD180;
+      color: #333;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .hero .cta-button:hover {
+      background-color: #FF8A65;
+      color: white;
+    }
+
+    /* --- Product / Showcase Section --- */
+    .products {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .products h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #FF8A65;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .product-card {
+      background-color: #FFF3E0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .product-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .product-info {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-info .title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .product-info .price {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #777;
+    }
+    .product-info .shop-btn {
+      align-self: flex-start;
+      background-color: #FF8A65;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .product-info .shop-btn:hover {
+      background-color: #FFD180;
+      color: #333;
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #FF8A65;
+      color: white;
+      margin-top: 60px;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none; /* could be toggled by a menu button in real use */
+      }
+      header {
         flex-wrap: wrap;
-        gap: 15px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .product-card {
+        width: 90%;
+      }
     }
 
-    nav ul li {
-        cursor: pointer;
-        font-weight: bold;
-        color: #003366;
-    }
-
-    /* Cards */
-    .cards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .card {
-        background-color: #fff;
-        border-radius: 10px;
-        width: 250px;
-        text-align: center;
-        padding: 15px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card img {
-        width: 100%;
-        border-radius: 8px;
-    }
-
-    .card button {
-        margin-top: 10px;
-        padding: 8px 15px;
-        border: none;
-        border-radius: 6px;
-        background-color: #ff6600;
-        color: white;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-</style>
+  </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">Shri Events</div>
-    <div class="account">
-        <span onclick="toggleAccount()">Account ▼</span>
-        <div id="accountDropdown" class="account-dropdown">
-            <p>Name: John Doe</p>
-            <p>Email: johndoe@example.com</p>
-            <p>Phone: +91 9876543210</p>
+  <header>
+    <div class="logo">Forniter Capital</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sofas</a></li>
+        <li><a href="#">Beds</a></li>
+        <li><a href="#">Wood Items</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="account-links">
+      <a href="#">Login</a> | <a href="#">Register</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Forniter Capital</h1>
+      <p>High quality furniture – sofas, beds, and woodworks just for you</p>
+      <button class="cta-button">Shop Collection</button>
+    </div>
+  </section>
+
+  <section class="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Luxury+Sofa" alt="Luxury Sofa">
+        <div class="product-info">
+          <div>
+            <div class="title">Luxury Sofa</div>
+            <div class="price">₹80,000</div>
+          </div>
+          <button class="shop-btn" onclick="shopItem('Luxury Sofa', 80000)">Shop Now</button>
         </div>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=King+Size+Bed" alt="King Size Bed">
+        <div class="product-info">
+          <div>
+            <div class="title">King Size Bed</div>
+            <div class="price">₹120,000</div>
+          </div>
+          <button class="shop-btn" onclick="shopItem('King Size Bed', 120000)">Shop Now</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Wooden+Dining+Table" alt="Wooden Dining Table">
+        <div class="product-info">
+          <div>
+            <div class="title">Wooden Dining Table</div>
+            <div class="price">₹45,000</div>
+          </div>
+          <button class="shop-btn" onclick="shopItem('Wooden Dining Table', 45000)">Shop Now</button>
+        </div>
+      </div>
     </div>
-</header>
+  </section>
 
-<nav>
-    <ul>
-        <li>Home</li>
-        <li>Design</li>
-        <li>Lighting</li>
-        <li>Catering</li>
-        <li>Decoration</li>
-        <li>Booking Day</li>
-        <li>More Options</li>
-    </ul>
-</nav>
+  <footer>
+    &copy; 2025 Forniter Capital. All Rights Reserved.
+  </footer>
 
-<section class="cards">
-    <div class="card">
-        <img src="design1.jpg" alt="Design 1">
-        <h3>Luxury Wedding Design</h3>
-        <p>Cost: ₹50,000</p>
-        <button onclick="shopNow('Luxury Wedding Design')">Shop</button>
-    </div>
-    <div class="card">
-        <img src="design2.jpg" alt="Design 2">
-        <h3>Corporate Event Setup</h3>
-        <p>Cost: ₹35,000</p>
-        <button onclick="shopNow('Corporate Event Setup')">Shop</button>
-    </div>
-    <div class="card">
-        <img src="design3.jpg" alt="Design 3">
-        <h3>Birthday Party Design</h3>
-        <p>Cost: ₹20,000</p>
-        <button onclick="shopNow('Birthday Party Design')">Shop</button>
-    </div>
-    <div class="card">
-        <img src="design4.jpg" alt="Design 4">
-        <h3>Outdoor Event Setup</h3>
-        <p>Cost: ₹40,000</p>
-        <button onclick="shopNow('Outdoor Event Setup')">Shop</button>
-    </div>
-</section>
-
-<script>
-    function toggleAccount() {
-        const dropdown = document.getElementById('accountDropdown');
-        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  <script>
+    // --- JS for interactivity ---
+    function shopItem(itemName, price) {
+      alert('You clicked Shop for: ' + itemName + ' — Price: ₹' + price);
+      // In real use: redirect to product detail page or add to cart
     }
 
-    function shopNow(itemName) {
-        alert(`You clicked shop for: ${itemName}`);
-    }
-</script>
+    console.log('Forniter Capital Dashboard loaded.');
+  </script>
 
 </body>
 </html>
