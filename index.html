@@ -1,287 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Forniter Capital Dashboard</title>
-  <style>
-    /* --- Basic reset and base styles --- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #FFF9F4;
-      color: #333;
-      line-height: 1.4;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* --- Header --- */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 30px;
-      background: linear-gradient(90deg, #FF8A65, #FFD180); /* bright orange-peach gradient */
-      color: white;
-    }
-    .logo {
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: white;
-      font-size: 1rem;
-      padding: 5px 10px;
-      transition: background-color 0.3s, border-radius 0.3s;
-    }
-    nav ul li a:hover {
-      background-color: rgba(255,255,255,0.3);
-      border-radius: 5px;
-    }
-    .account-links {
-      font-size: 0.9rem;
-    }
-    .account-links a {
-      color: white;
-      margin-left: 15px;
-      padding: 5px 10px;
-      transition: background-color 0.3s, border-radius 0.3s;
-    }
-    .account-links a:hover {
-      background-color: rgba(255,255,255,0.3);
-      border-radius: 5px;
-    }
-
-    /* --- Hero / Intro Section --- */
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: url('https://via.placeholder.com/1200x500?text=Furniture+Backdrop') center/cover no-repeat;
-      position: relative;
-      color: white;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background-color: rgba(0,0,0,0.4);
-      z-index: 1;
-    }
-    .hero .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .hero .cta-button {
-      background-color: #FFD180;
-      color: #333;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .hero .cta-button:hover {
-      background-color: #FF8A65;
-      color: white;
-    }
-
-    /* --- Product / Showcase Section --- */
-    .products {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .products h2 {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-      color: #FF8A65;
-    }
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-    .product-card {
-      background-color: #FFF3E0;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 300px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-    .product-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    .product-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .product-info {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .product-info .title {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .product-info .price {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: #777;
-    }
-    .product-info .shop-btn {
-      align-self: flex-start;
-      background-color: #FF8A65;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .product-info .shop-btn:hover {
-      background-color: #FFD180;
-      color: #333;
-    }
-
-    /* --- Footer --- */
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background-color: #FF8A65;
-      color: white;
-      margin-top: 60px;
-    }
-
-    /* --- Responsive --- */
-    @media (max-width: 768px) {
-      nav ul {
-        display: none; /* could be toggled by a menu button in real use */
-      }
-      header {
-        flex-wrap: wrap;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-      .product-card {
-        width: 90%;
-      }
-    }
-
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Furniture Capital</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff9f0;
+            color: #333;
+        }
+        header {
+            background-color: #ff8c00;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        .account {
+            font-size: 14px;
+        }
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px;
+            gap: 20px;
+        }
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 250px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .product img {
+            width: 100%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .product-details {
+            padding: 10px;
+        }
+        .product-details h3 {
+            margin: 0 0 10px;
+            color: #ff8c00;
+        }
+        .product-details p {
+            margin: 5px 0;
+        }
+        .shop-btn {
+            background-color: #ff8c00;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .shop-btn:hover {
+            background-color: #e67600;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff8c00;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">Forniter Capital</div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Sofas</a></li>
-        <li><a href="#">Beds</a></li>
-        <li><a href="#">Wood Items</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="account-links">
-      <a href="#">Login</a> | <a href="#">Register</a>
+    <header>
+        <div class="logo">Furniture Capital</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Offers</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="account">Welcome, User | <a href="#" style="color:white; text-decoration:underline;">Sign Out</a></div>
+    </header>
+
+    <div class="products" id="products">
+        <!-- Products will be inserted by JavaScript -->
     </div>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Forniter Capital</h1>
-      <p>High quality furniture – sofas, beds, and woodworks just for you</p>
-      <button class="cta-button">Shop Collection</button>
-    </div>
-  </section>
+    <footer>
+        &copy; 2025 Furniture Capital. All rights reserved.
+    </footer>
 
-  <section class="products">
-    <h2>Featured Products</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Luxury+Sofa" alt="Luxury Sofa">
-        <div class="product-info">
-          <div>
-            <div class="title">Luxury Sofa</div>
-            <div class="price">₹80,000</div>
-          </div>
-          <button class="shop-btn" onclick="shopItem('Luxury Sofa', 80000)">Shop Now</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=King+Size+Bed" alt="King Size Bed">
-        <div class="product-info">
-          <div>
-            <div class="title">King Size Bed</div>
-            <div class="price">₹120,000</div>
-          </div>
-          <button class="shop-btn" onclick="shopItem('King Size Bed', 120000)">Shop Now</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Wooden+Dining+Table" alt="Wooden Dining Table">
-        <div class="product-info">
-          <div>
-            <div class="title">Wooden Dining Table</div>
-            <div class="price">₹45,000</div>
-          </div>
-          <button class="shop-btn" onclick="shopItem('Wooden Dining Table', 45000)">Shop Now</button>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+        const productData = [
+            {
+                name: "Luxury Sofa",
+                price: "$499",
+                image: "https://images.unsplash.com/photo-1598300055591-d994bc1aaab3?crop=entropy&cs=tinysrgb&fit=max&h=250&w=400"
+            },
+            {
+                name: "King Size Bed",
+                price: "$799",
+                image: "https://images.unsplash.com/photo-1600566753471-79c9f7c7d2d3?crop=entropy&cs=tinysrgb&fit=max&h=250&w=400"
+            },
+            {
+                name: "Wooden Cabinet",
+                price: "$299",
+                image: "https://images.unsplash.com/photo-1616627981245-9bc20830b53e?crop=entropy&cs=tinysrgb&fit=max&h=250&w=400"
+            },
+            {
+                name: "Dining Table",
+                price: "$399",
+                image: "https://images.unsplash.com/photo-1605624229607-4023e787f4c2?crop=entropy&cs=tinysrgb&fit=max&h=250&w=400"
+            },
+            {
+                name: "Wooden Chair Set",
+                price: "$199",
+                image: "https://images.unsplash.com/photo-1605902711622-cfb43c4434ee?crop=entropy&cs=tinysrgb&fit=max&h=250&w=400"
+            },
+            {
+                name: "Bookshelf",
+                price: "$259",
+                image: "https://images.unsplash.com/photo-1588854337117-2ae9c7d5903b?crop=entropy&cs=tinysrgb&fit=max&h=250&w=400"
+            }
+        ];
 
-  <footer>
-    &copy; 2025 Forniter Capital. All Rights Reserved.
-  </footer>
+        const productsContainer = document.getElementById('products');
 
-  <script>
-    // --- JS for interactivity ---
-    function shopItem(itemName, price) {
-      alert('You clicked Shop for: ' + itemName + ' — Price: ₹' + price);
-      // In real use: redirect to product detail page or add to cart
-    }
-
-    console.log('Forniter Capital Dashboard loaded.');
-  </script>
-
-</body>
-</html>
+        productData.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+            productDiv.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <div class="product-details">
+                    <h3>${produc
